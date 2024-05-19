@@ -51,8 +51,9 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      <p>Additional information</p>
+     
       <div>
+      <h3>Additional information</h3>
         <div >
           <div className="aditionalInformation">
             <Link to={`/movies/${movieId}/cast`}>
