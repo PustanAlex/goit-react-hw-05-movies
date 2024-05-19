@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from 'pages/Home';
 import Movies from 'pages/Movies';
 import MovieDetails from './MovieDetails';
-import Cast from './Cast'; // Importă componenta Cast
+import Cast from './Cast'; 
 import Reviews from './Reviews';
 
 export const App = () => {
