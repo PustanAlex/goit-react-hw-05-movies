@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const [loading, setLoading] = useState(true); 
 
   const fetchTrending = () => {
     const options = {
@@ -19,7 +20,10 @@ const Home = () => {
       options
     )
       .then(response => response.json())
-      .then(data => setTrendingMovies(data.results))
+      .then(data => {
+        setTrendingMovies(data.results);
+        setLoading(false); 
+      })
       .catch(err => console.error(err));
   };
 
@@ -30,13 +34,17 @@ const Home = () => {
   return (
     <div>
       <h2>Trending today</h2>
-      <ul>
-        {trendingMovies.map(movie => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title || movie.name}</Link>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {trendingMovies.map(movie => (
+            <li key={movie.id}>
+              <Link to={`/movies/${movie.id}`}>{movie.title || movie.name}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

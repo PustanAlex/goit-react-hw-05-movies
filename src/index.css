@@ -50,3 +50,21 @@ a:hover {
   display: flex;
   gap: 20px;
 }
+
+.movieDetails {
+
+  align-items: center;
+  gap: 20px;
+}
+
+.movieDetails img {
+  width: 200px;
+}
+
+.overview {
+  width: 400px;
+}
+
+.allInfoAboutFilm {
+  margin-left: 20px;
+}
